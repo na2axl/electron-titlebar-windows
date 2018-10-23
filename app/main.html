@@ -14,7 +14,9 @@
         color: 'rgb(220, 200, 200)',
         backgroundColor: 'rgb(200, 80, 150)',
         draggable: true,
-        fullscreen: false
+        fullscreen: false,
+        icon: "./AlienEngineLogo.png",
+        title: "Electron title bar extended"
     });
 
     /**
@@ -31,10 +33,10 @@
     });
 
     /** Event#fullscreen */
-    titlebar.on('fullscreen', () => {
-        console.info('fullscreen');
+    titlebar.on('restore', () => {
+        console.info('restore');
 
-        remote.getCurrentWindow().setFullScreen(true);
+        remote.getCurrentWindow().restore();
     });
 
     /** Event#minimize */
@@ -48,7 +50,6 @@
     titlebar.on('maximize', () => {
         console.info('maximize');
 
-        remote.getCurrentWindow().setFullScreen(false);
         remote.getCurrentWindow().maximize();
     });
 </script>
